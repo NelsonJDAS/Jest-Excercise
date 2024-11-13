@@ -1,20 +1,24 @@
 let oneEuroIs = {
-    "JPY": 156.5, // japan yen
-    "USD": 1.07, // us dollar
-    "GBP": 0.87, // british pound
-}
+  JPY: 156.5, // japan yen
+  USD: 1.07, // us dollar
+  GBP: 0.87, // british pound
+};
 
 const DolarToYen = (montoDolares) => {
-    return montoDolares * 146.26;
-}
+  montoDolares = (montoDolares / oneEuroIs.USD) * oneEuroIs.JPY;
+  return montoDolares;
+};
 
 const EuroToDollar = (montoEuros) => {
-    return montoEuros * oneEuroIs["USD"];
-}
+  let Euros = montoEuros * oneEuroIs.USD;
+  return Euros;
+};
 
 const YenToPound = (montoYenes) => {
-    return montoYenes * 0.00556;
-}
+  let Yenes = (montoYenes / oneEuroIs.JPY) * oneEuroIs.GBP;
+  return Yenes;
+};
 
+console.log(DolarToYen(1), EuroToDollar(1), YenToPound(1));
 
 module.exports = { DolarToYen, EuroToDollar, YenToPound };
